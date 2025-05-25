@@ -1,6 +1,6 @@
 # 🏗️ Projeto Integrador – Medições em Obras
 
-Este projeto foi desenvolvido como parte do Projeto Integrador do curso de Análise e Desenvolvimento de Sistemas. O objetivo é facilitar o processo de registro de medições em obras, substituindo os métodos manuais por um sistema digital simples, prático e seguro.
+Este projeto está sendo desenvolvido como parte do Projeto Integrador do curso de Análise e Desenvolvimento de Sistemas. O objetivo é facilitar o processo de registro de medições em obras, substituindo os métodos manuais por um sistema digital simples, prático e seguro.
 
 ---
 
@@ -14,7 +14,7 @@ Este projeto foi desenvolvido como parte do Projeto Integrador do curso de Anál
 
 ---
 
-## 🎯 Funcionalidades
+## 🎯 Funcionalidades a serem Desenvolvidas
 
 - [x] Cadastro e login de usuários com autenticação JWT
 - [x] Registro de clientes e endereços de obras
@@ -22,14 +22,5 @@ Este projeto foi desenvolvido como parte do Projeto Integrador do curso de Anál
 - [x] Upload de imagens e anotações para cada medição
 - [x] Filtros por status das medições (ex: Em andamento, Concluído)
 - [x] Visualização organizada por cliente e obra
-- [ ] Funcionalidade de geração de PDF (em desenvolvimento)
 
 ---
-
-## ⚙️ Como Executar o Projeto Localmente
-
-### 🔽 Pré-requisitos
-
-- Node.js instalado
-- PostgreSQL rodando
-- Git instalado
