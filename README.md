@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # 🏗️ Projeto Integrador – Medições em Obras
 
 Este projeto está sendo desenvolvido como parte do Projeto Integrador do curso de Análise e Desenvolvimento de Sistemas. O objetivo é facilitar o processo de registro de medições em obras, substituindo os métodos manuais por um sistema digital simples, prático e seguro.
