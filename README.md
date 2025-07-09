@@ -9,7 +9,7 @@ Este projeto está sendo desenvolvido como parte do Projeto Integrador do curso 
 
 - **Linguagem:** JavaScript
 - **Servidor:** Node.js + Express
-- **Banco de Dados:** PostgreSQL
+- **Banco de Dados:** MYSQL
 - **ORM:** Prisma
 - **Autenticação:** JWT (JSON Web Token)
 
