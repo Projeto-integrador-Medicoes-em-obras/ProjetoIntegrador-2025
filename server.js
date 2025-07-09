@@ -1,22 +1,17 @@
 import express from 'express'
-import publicRoutes from './routes/public.js'
-const express = require('express');
-const app = express();
-app.use('/', publicRoutes)
 
 
+const app = express()
 app.use(express.json())
-app.get('/', (req, res) => {
-  res.send('Servidor rodando!');
-});
+const users = []
 
-app.listen(3000, () => console.log("servidor rodando"))
+app.post('/usuarios',(req, res) => {
+  users.push(req.body)
+  res.status(201).json(req.body)
+})
+app.get('/usuarios', (req, res) => {
+  res.status(200).json(users)
+})
 
-/* 3 rotas 
+app.listen(8080)
 
-Públicas 
-cadastro de login
-
-Privadas
-listas usuarios
-*/
