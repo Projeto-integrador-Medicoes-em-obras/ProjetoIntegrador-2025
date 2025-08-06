@@ -1,23 +1,32 @@
-import { PrismaClient } from '@prisma/client';
-const prisma = new PrismaClient();
+import { PrismaClient } from '@prisma/client'
+const prisma = new PrismaClient()
 
-export async function relatorio(req, res) {
+export async function gerarRelatorio(req, res) {
   try {
-    const totalClientes = await prisma.cliente.count();
-    const totalMedicoes = await prisma.medicao.count();
-    const concluidas = await prisma.medicao.count({
-      where: { status: "Concluída" }
-    });
-    const pendentes = totalMedicoes - concluidas;
+    const empresaId = req.user.id
 
-    res.json({
-      totalClientes,
-      totalMedicoes,
-      concluidas,
-      pendentes
-    });
+    // Agrupa por status, contando quantas medições de cada
+    const resultado = await prisma.medicao.groupBy({
+      by: ['status'],
+      where: {
+        cliente: { empresaId }
+      },
+      _count: { _all: true }
+    })
+
+    // Monta um objeto com ambos os status sempre presentes
+    const relatorio = {
+      pendente: 0,
+      concluido: 0
+    }
+    for (const item of resultado) {
+      relatorio[item.status] = item._count._all
+    }
+
+    res.json({ empresaId, relatorio })
   } catch (error) {
-    res.status(500).json({ error: 'Erro ao gerar relatório', details: error.message });
+    console.error(error)
+    res.status(500).json({ erro: "Erro ao gerar relatório" })
   }
 }
 

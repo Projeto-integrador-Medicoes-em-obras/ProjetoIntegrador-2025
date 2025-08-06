@@ -4,7 +4,7 @@ import auth from '../middlewares/authMiddleware.js'
 const router = Router()
 
 // Controller de exemplo (por enquanto retorna um resumo fixo)
-function relatorio(req, res) {
+function gerarRelatorio(req, res) {
   res.json({
     totalClientes: 10,
     totalMedicoes: 5,
@@ -13,7 +13,7 @@ function relatorio(req, res) {
 }
 
 // Rota protegida com JWT
-router.get('/', auth, relatorio)
+router.get('/', auth, gerarRelatorio)
 
 export default router
 

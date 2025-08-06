@@ -19,6 +19,11 @@ export async function criarMedicao(req, res) {
       }
     });
 
+    const concluida = await prisma.medicao.update({
+      where:{id:1},
+      data:{status: 'Concluido'}
+    })
+
     res.status(201).json(medicao);
   } catch (err) {
     console.error(err);

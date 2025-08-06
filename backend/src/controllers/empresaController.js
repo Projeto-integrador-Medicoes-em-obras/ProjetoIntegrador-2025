@@ -19,6 +19,19 @@ export const registerEmpresa = async (req, res) => {
     res.status(400).json({erro: error.message})
   }
 }
+export async function updateEmpresa(req, res) {
+  const { nome, telefone, email } = req.body
+
+  try {
+    const emp = await prisma.empresa.update({
+      where: { id: req.user.id },
+      data: { nome, telefone, email }
+    })
+    res.json(emp)
+  } catch (err) {
+    res.status(400).json({ erro: err.message })
+  }
+}
 
 export const loginEmpresa = async (req, res) => {
   const dados = req.body;
@@ -48,4 +61,8 @@ export const loginEmpresa = async (req, res) => {
 
   const token = jwt.sign({ id: empresa.id }, process.env.JWT_SECRET, { expiresIn: '1d' });
   res.json({ token });
+  
+}
+export function logoutEmpresa(req, res) {
+  res.json({ mensagem: 'Logout realizado. Apague o token no client.' })
 };

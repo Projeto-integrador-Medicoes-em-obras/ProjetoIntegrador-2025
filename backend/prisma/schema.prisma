@@ -40,13 +40,16 @@ model Endereco {
   cliente    Cliente  @relation(fields: [clienteId], references: [id], onDelete: Cascade)
   medicoes Medicao[]
 }
-
+enum statusMedicao{
+  PENDENTE
+  CONCLUIDO
+}
 model Medicao {
   id           Int      @id @default(autoincrement())
   clienteId    Int
   enderecoId   Int
   dataAgendada DateTime?
-  status       String   @default("pendente")
+  status       statusMedicao   @default(PENDENTE)
   altura       Float?
   largura      Float?
   observacao   String?
