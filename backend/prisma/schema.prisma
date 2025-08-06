@@ -1,0 +1,80 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Empresa {
+  id       Int      @id @default(autoincrement())
+  nome     String
+  cnpj     String   @unique
+  telefone String
+  email    String   @unique
+  senha    String
+  clientes Cliente[]
+  funcionarios Funcionario[]
+  produto Produto[]
+}
+
+model Cliente {
+  id         Int        @id @default(autoincrement())
+  nome       String
+  telefone   String
+  observacao String?
+  empresaId  Int
+  empresa    Empresa    @relation(fields: [empresaId], references: [id])
+  enderecos  Endereco[]
+  medicoes   Medicao[]
+}
+
+model Endereco {
+  id         Int      @id @default(autoincrement())
+  logradouro String
+  bairro     String
+  cidade     String
+  cep        String
+  clienteId  Int
+  cliente    Cliente  @relation(fields: [clienteId], references: [id], onDelete: Cascade)
+  medicoes Medicao[]
+}
+
+model Medicao {
+  id           Int      @id @default(autoincrement())
+  clienteId    Int
+  enderecoId   Int
+  dataAgendada DateTime?
+  status       String   @default("pendente")
+  altura       Float?
+  largura      Float?
+  observacao   String?
+  descricao    String?
+  imagem       String?
+
+  cliente      Cliente  @relation(fields: [clienteId], references: [id])
+  endereco     Endereco @relation(fields: [enderecoId], references: [id])
+}
+
+model Funcionario {
+  id              Int       @id @default(autoincrement())
+  nome            String
+  cpf             String    @unique
+  email           String    @unique
+  senha           String
+  cargo           String
+  empresaId       Int
+  empresa         Empresa   @relation(fields: [empresaId], references: [id])
+}
+
+model Produto {
+  id          Int      @id @default(autoincrement())
+  nome        String
+  descricao   String?
+  preco       Float
+  empresaId   Int
+  empresa     Empresa  @relation(fields: [empresaId], references: [id])
+}
+
+

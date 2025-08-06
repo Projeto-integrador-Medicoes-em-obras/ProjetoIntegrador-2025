@@ -1,3 +1,7 @@
+import {authMiddleware } from '../middlewares/authMiddleware.js';
+
+
+router.get('/clientes', authMiddleware. listarClientes);
 const express = require('express');
 const router = express.Router();
 const authController = require('../controllers/auth.controller');

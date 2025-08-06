@@ -10,3 +10,5 @@ node_modules/
 # Sistema operacional
 .DS_Store
 Thumbs.db
+
+/src/generated/prisma
