@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedObras - Gerenciamento de Projetos de Construção</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+      <div class="container">
+        <nav class="navbar">
+          <a href="#" class="logo">
+            <img src="assets/imagens/logo-medobras.png" alt="MedObras Logo" style="height: 120px; width: auto;">
+        <span class="logo-text" style="display: none;"></span>
+          </a>
+          <div class="nav-links">
+            <a href="#">Início</a>
+            <a href="#">Serviços</a>
+            <a href="#">Sobre</a>
+            <a href="#">Contato</a>
+          </div>
+        </nav>
+      </div>
+    </header>
+    
+    <div class="container">
+        <div class="main-content">
+            <section class="login-section">
+                <h1>Entrar</h1>
+                <form id="login-form">
+                    <div class="input-group">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id="email" placeholder="Seu email" required>
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="senha" placeholder="Sua senha" required>
+                    </div>
+                    <p id="error-message" style="color: red; text-align: center; margin-bottom: 15px;"></p>
+                    <a href="#" class="forgot-password">Esqueceu a senha?</a>
+                    <button type="submit" class="btn">Entrar</button>
+                    <p class="signup-link">Não possui uma conta? <a href="#">Inscrever-se</a></p>
+                </form>
+            </section>
+            
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
